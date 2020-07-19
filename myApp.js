@@ -6,7 +6,7 @@ const app = express();
 // --> 11)  Mount the body-parser middleware  here
 
 /** 1) Meet the node console. */
-console.log('Hello World');
+// console.log('Hello World');
 
 /** 2) A first working Express Server */
 // app.get('/', (req, res, next) => {
@@ -19,9 +19,8 @@ app.get('/', (req, res, next) => {
   res.sendFile(absolutePath);
 });
 
-
 /** 4) Serve static assets  */
-app.use()
+app.use(express.static(__dirname + '/public'));
 
 /** 5) serve JSON on a specific route */
 
