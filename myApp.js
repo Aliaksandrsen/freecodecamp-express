@@ -21,12 +21,7 @@ app.use((req, res, next) => {
   next();
 });
 
-/** 11) Get ready for POST Requests - the `body-parser` */
-// place it before all the routes !
-app.use((req, res, next)=> {
-  bodyParser.urlencoded({extended: false});
-  next();
-});
+
 
 /** 3) Serve an HTML file */
 app.get('/', (req, res, next) => {
@@ -70,11 +65,16 @@ app.get('/name', (req, res, next) => {
   res.json({ name: `${first} ${last}`});
 });
 
-
-
-
+/** 11) Get ready for POST Requests - the `body-parser` */
+// place it before all the routes !
+app.use(bodyParser.urlencoded({extended: false}));
 
 /** 12) Get data form POST  */
+app.post('/name', (req, res, next) => {
+  const first = req.body.first;
+  const last = req.body.last;
+  res.json({ name: `${first} ${last}`});
+});
 
 // This would be part of the basic setup of an Express app
 // but to allow FCC to run tests, the server is already active
