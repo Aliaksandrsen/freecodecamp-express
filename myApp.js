@@ -13,6 +13,13 @@ const app = express();
   // res.send('Hello Express');
 // });
 
+/** 7) Root-level Middleware - A logger */
+//  place it before all the routes !
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
+  next();
+});
+
 /** 3) Serve an HTML file */
 app.get('/', (req, res, next) => {
   const absolutePath = __dirname + '/views/index.html';
@@ -33,10 +40,8 @@ app.get('/json', (req, res, next) => {
 
 /** 6) Use the .env file to configure the app */
 
-/** 7) Root-level Middleware - A logger */
-//  place it before all the routes !
-
 /** 8) Chaining middleware. A Time server */
+
 
 /** 9)  Get input from client - Route parameters */
 
