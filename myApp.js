@@ -49,9 +49,14 @@ app.get('/now', (req, res, next) => {
 });
 
 /** 9)  Get input from client - Route parameters */
+app.get('/:word/echo', (req, res, next) => {
+  const word = req.params.word;
+  res.json({echo: word});
+});
 
 /** 10) Get input from client - Query parameters */
 // /name?first=<firstname>&last=<lastname>
+
 
 /** 11) Get ready for POST Requests - the `body-parser` */
 // place it before all the routes !
