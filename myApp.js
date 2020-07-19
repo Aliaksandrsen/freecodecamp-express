@@ -14,6 +14,11 @@ app.get('/', (req, res, next) => {
 });
 
 /** 3) Serve an HTML file */
+app.get('/', (req, res, next) => {
+  const absolutePath = __dirname + '/views/index.html';
+  res.sendFile(absolutePath, )
+});
+
 
 /** 4) Serve static assets  */
 
