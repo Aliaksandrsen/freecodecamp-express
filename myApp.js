@@ -9,6 +9,9 @@ const app = express();
 console.log('Hello World');
 
 /** 2) A first working Express Server */
+app.get('/', (req, res, next) => {
+  res.send('Response String');
+});
 
 /** 3) Serve an HTML file */
 
